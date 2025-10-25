@@ -33,9 +33,9 @@ const Hero = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.25 }} className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
-              {["RBI Verified Data", "Community Lens", "Real-time Alerts"].map((k, i) => (
+              {["RBI Verified Data", "Community Lens", "Real-time Alerts"].map((k) => (
                 <div key={k} className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/0 p-4 text-center">
-                  <div className="absolute inset-0 bg-[conic-gradient(from_180deg,transparent,transparent,rgba(34,211,238,.18),transparent,transparent)] animate-spin-slow" />
+                  <div className="absolute inset-0 bg-[conic-gradient(from_180deg,transparent,transparent,rgba(34,211,238,.18),transparent,transparent)] animate-spin [animation-duration:6s]" />
                   <div className="relative text-sm text-white/80">{k}</div>
                 </div>
               ))}

@@ -3,9 +3,16 @@ import { motion } from "framer-motion";
 import { AlertTriangle, Bell, Search, Users, Cpu, ArrowRight, ShieldCheck, CheckCircle2, XCircle, Code } from "lucide-react";
 import TrustMeter from "./TrustMeter";
 
+const StatGlow = ({ glow }) => {
+  if (glow === "rose") return <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-transparent via-rose-400/10 to-transparent blur-2xl" />;
+  if (glow === "amber") return <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-transparent via-amber-400/10 to-transparent blur-2xl" />;
+  if (glow === "emerald") return <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-transparent via-emerald-400/10 to-transparent blur-2xl" />;
+  return <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-transparent via-cyan-400/10 to-transparent blur-2xl" />;
+};
+
 const StatCard = ({ title, value, subtitle, glow = "cyan" }) => (
   <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 overflow-hidden">
-    <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-tr from-transparent via-${glow}-400/10 to-transparent blur-2xl`} />
+    <StatGlow glow={glow} />
     <div className="relative">
       <div className="text-sm text-white/60">{title}</div>
       <div className="mt-1 text-3xl font-bold">{value}</div>
@@ -201,7 +208,7 @@ const Showcase = () => {
               { icon: <Code className="h-5 w-5" />, t: "Developer API", d: "Embed TrustLens in apps and extensions." },
             ].map((f) => (
               <div key={f.t} className="relative p-5 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent">
-                <div className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent,rgba(56,189,248,.15),transparent)] opacity-60 animate-spin-slow" />
+                <div className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent,rgba(56,189,248,.15),transparent)] opacity-60 animate-spin [animation-duration:6s]" />
                 <div className="relative flex items-start gap-3">
                   <div className="h-10 w-10 grid place-items-center rounded-xl bg-cyan-500/15 border border-cyan-300/30 text-cyan-200">{f.icon}</div>
                   <div>
